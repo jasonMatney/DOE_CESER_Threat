@@ -1,0 +1,76 @@
+# Documentation: Data Acquisition and Transformation for Temporal Analysis
+
+## Overview
+
+This document outlines the procedures and challenges encountered during the acquisition and transformation of various environmental datasets necessary for temporal analysis, with a focus on winter storm events. The goal is to integrate these datasets into FEMA's National Risk Index (NRI) for assessing risks associated with winter weather, wildfires, flooding, earthquakes, and other natural hazards.
+
+## Datasets and Sources
+
+### 1. Weather Data for Winter Storm Analysis
+
+#### Source Acquisition:
+- **National Weather Service (NWS):** Initially considered for weather dataset, but usage is limited due to the data being tied to public forecast zones.
+
+#### Challenges:
+- **Public Forecast Zone Dataset:** The NWS data is associated with public forecast zones which have undergone changes over time, complicating historical analysis.
+
+#### Solutions:
+- **Normalization of Forecast Zones (NRI):** The NRI team has addressed these changes by mapping historical weather data from one forecast zone to another, ensuring continuity in the dataset.
+
+#### Transformation and Access:
+- **Mesonet Data Access:** The required datasets can be found at the Iowa State Mesonet website (https://mesonet.agron.iastate.edu/). The site requires users to select individual weather events for download, which can be an issue if specific data is not available.
+
+### 2. Army Corps of Engineers' Winter Weather Data for FEMA NRI
+
+#### Challenges:
+- **Data Accessibility:** There is a known dataset by the Army Corps of Engineers that could be beneficial for winter weather analysis for FEMA NRI, but access to this dataset is restricted, and it reportedly contains incomplete data.
+
+### 3. Iowa State Mesonet
+
+#### Data Usage:
+- **FEMA NRI's Pre-processing:** It has been noted that the FEMA NRI team has already processed the Mesonet data, which could potentially bypass the need for individual selection and download of weather events.
+
+### 4. PRISM Data
+
+#### Discoveries:
+- **Data Awareness:** The team was not initially aware of the existence of PRISM data which could be relevant for the analysis.
+
+### 5. Natural Hazard Data for Other Disasters
+
+#### Process:
+- **HAZUS Use for Hawaii:** Historical scenarios using HAZUS have been utilized for national-level analysis in the case of Hawaii.
+
+#### Challenges:
+- **Data Availability for National Analysis:** Currently, there is no known comprehensive dataset for hazards like wildfires, flooding, and earthquakes at a national level.
+
+#### Development:
+- **USGS Seismic Probability Model:** A model is reportedly in development by the USGS, which includes a hazard library but lacks a data product that can be used currently.
+
+## Technical Implementation
+
+### NSHMP-HAZ Docker Implementation
+
+#### Steps:
+1. **Acquisition of NSHMP-HAZ:** Download or build the NSHMP-HAZ software package.
+2. **Docker Image Creation:** Build a Docker image containing the NSHMP-HAZ application.
+3. **Container Deployment:** Deploy the application within a Docker container to ensure an isolated and reproducible environment for running the application.
+
+### Wildfire Analysis
+
+#### Data Layer Utilization:
+- **Burn Probability Layer:** For past wildfire analysis, a burn probability layer has been used to assess risk.
+
+## Conclusion
+
+The data acquisition and transformation process for temporal analysis in environmental hazards is complex, with various sources and challenges. Overcoming these challenges requires a combination of data normalization, utilization of specialized software like NSHMP-HAZ within Docker containers, and innovative solutions to access and utilize incomplete or restricted datasets. Ongoing efforts in data development and model creation, such as those by USGS, are critical for future enhancements in national-level hazard analysis.
+
+## References
+
+- Iowa State Mesonet: https://mesonet.agron.iastate.edu/
+- FEMA National Risk Index (NRI): [FEMA website or specific NRI page]
+- HAZUS: [Link to HAZUS information or user guide]
+- NSHMP-HAZ: [Link to NSHMP-HAZ repository or download page]
+
+---
+
+*Note: This document is a summary and does not detail specific technical procedures for data transformation or application deployment. Further detailed guides are recommended for technical execution.*
